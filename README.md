@@ -1,6 +1,7 @@
 # MPS
 [Mathematical Programming System (MPS)](http://en.wikipedia.org/wiki/MPS_%28format%29) format parser for Golang.
 This package reads a plain/gzip mps file and returns the [linear programming problem](http://en.wikipedia.org/wiki/Linear_programming) in [standard form](http://en.wikipedia.org/wiki/Linear_programming#Standard_form) represented as the following matrices :
+
 1. A, constraints coefficient matrix.
 2. b, column vector containing the RHS of constraints.
 3. c, column vector containing objective function coefficients.

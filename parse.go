@@ -219,9 +219,6 @@ func mpsParser(rd io.Reader) (*LPData, error) {
 						}
 					}
 				}
-			} else {
-				return nil,
-				fmt.Errorf("In RANGES section there is unsupported number of fields")
 			}
 		case BOUNDS:
 			if len(flds) != 4 && len(flds) != 3 {

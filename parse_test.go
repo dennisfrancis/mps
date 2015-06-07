@@ -155,6 +155,94 @@ BOUNDS
  FR BOUND     x3
 ENDATA
 `,
+// INPUT 6
+`
+NAME          example2.mps
+ROWS
+ N  obj     
+ L  c1      
+ L  c2      
+COLUMNS
+    x1        obj                 -1   c1                  -1
+    x1        c2                   1
+    x2        obj                 -2   c1                   1
+    x2        c2                  -3
+    x3        obj                 -3   c1                   1
+    x3        c2                   1
+RHS
+    rhs       c1                  20   c2                  30
+RANGES
+    rhs       c1                  30   c2                 -20
+BOUNDS
+ UP BOUND     x1                  40
+ENDATA
+`,
+// INPUT 7
+`
+NAME          example2.mps
+ROWS
+ N  obj     
+ G  c1      
+ L  c2      
+COLUMNS
+    x1        obj                 -1   c1                  -1
+    x1        c2                   1
+    x2        obj                 -2   c1                   1
+    x2        c2                  -3
+    x3        obj                 -3   c1                   1
+    x3        c2                   1
+RHS
+    rhs       c1                  20   c2                  30
+RANGES
+    rhs       c1                  50
+BOUNDS
+ UP BOUND     x1                  40
+ENDATA
+`,
+// INPUT 8
+`
+NAME          example2.mps
+ROWS
+ N  obj     
+ L  c1      
+ E  c2      
+COLUMNS
+    x1        obj                 -1   c1                  -1
+    x1        c2                   1
+    x2        obj                 -2   c1                   1
+    x2        c2                  -3
+    x3        obj                 -3   c1                   1
+    x3        c2                   1
+RHS
+    rhs       c1                  20   c2                  30
+RANGES
+    rhs       c2                  50
+BOUNDS
+ UP BOUND     x1                  40
+ENDATA
+`,
+// INPUT 9
+`
+NAME          example2.mps
+ROWS
+ N  obj     
+ L  c1      
+ E  c2      
+COLUMNS
+    x1        obj                 -1   c1                  -1
+    x1        c2                   1
+    x2        obj                 -2   c1                   1
+    x2        c2                  -3
+    x3        obj                 -3   c1                   1
+    x3        c2                   1
+RHS
+    rhs       c1                  20   c2                  30
+RANGES
+    rhs       c2                 -50
+BOUNDS
+ UP BOUND     x1                  40
+ENDATA
+`,
 }
 
 var testOutput = []string{
@@ -236,6 +324,68 @@ C = {-1,
  -2,
  -3,
   3}
+CConst = 0.0000
+Lower Bound on x1 = 0.0000
+`,
+// OUTPUT 6
+`A = {-1,  1,  1,
+  1, -1, -1,
+  1, -3,  1,
+ -1,  3, -1,
+  1,  0,  0}
+B = { 20,
+  10,
+  30,
+ -10,
+  40}
+C = {-1,
+ -2,
+ -3}
+CConst = 0.0000
+Lower Bound on x1 = 0.0000
+`,
+// OUTPUT 7
+`A = { 1, -1, -1,
+ -1,  1,  1,
+  1, -3,  1,
+  1,  0,  0}
+B = {-20,
+  70,
+  30,
+  40}
+C = {-1,
+ -2,
+ -3}
+CConst = 0.0000
+Lower Bound on x1 = 0.0000
+`,
+// OUTPUT 8
+`A = {-1,  1,  1,
+ -1,  3, -1,
+  1, -3,  1,
+  1,  0,  0}
+B = { 20,
+ -30,
+  80,
+  40}
+C = {-1,
+ -2,
+ -3}
+CConst = 0.0000
+Lower Bound on x1 = 0.0000
+`,
+// OUTPUT 9
+`A = {-1,  1,  1,
+  1, -3,  1,
+ -1,  3, -1,
+  1,  0,  0}
+B = {20,
+ 30,
+ 20,
+ 40}
+C = {-1,
+ -2,
+ -3}
 CConst = 0.0000
 Lower Bound on x1 = 0.0000
 `,
